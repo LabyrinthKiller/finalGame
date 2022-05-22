@@ -1,4 +1,12 @@
 [[package]]
+name = "experimental"
+version = "0.9.7"
+description = "Enables easy modification of Python's syntax on the fly."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pygame"
 version = "2.1.2"
 description = "Python Game Development"
@@ -9,9 +17,13 @@ python-versions = ">=3.6"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "f16d9f9458fcf1d54f29fbb73238498b66554552a2f7d271c3dc258c2cb78e84"
+content-hash = "51715b6aee8b41310dc97e1ced9d51285131e34581e57a9751ef85d2acaf5f43"
 
 [metadata.files]
+experimental = [
+    {file = "experimental-0.9.7-py3-none-any.whl", hash = "sha256:67be37dc0c3e2c4276dcdf3f442d86f1addbd59dbafd8f766a02bd8d78aa6c23"},
+    {file = "experimental-0.9.7.tar.gz", hash = "sha256:0fd2dbbbab2cf61d9911c8c08e8c2bead01a8ed71b500a8d61115f055de6944d"},
+]
 pygame = [
     {file = "pygame-2.1.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f149e182d0eeef15d8a9b4c9dad1b87dc6eba3a99bd3c44a777a3a2b053a3dca"},
     {file = "pygame-2.1.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:dc4444d61d48c5546df5137cdf81554887ddb6e2ef1be7f51eb77ea3b6bdd56f"},
