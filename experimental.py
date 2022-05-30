@@ -3,11 +3,11 @@ def scene0():
   import pygame
   import sys
   import textwrap
-  #this music is mainly to test unless it is widely accepted. If using headphones make sure to click the check box at the bottom right of the game window
+  #this music is mainly to test unless it is widely accepted.3 If using headphones make sure to click the check box at the bottom right of the game window
   global userNameEntered
   global userText
   mixer.init()
-  mixer.music.load('assets/sounds/music/bgMusic.mp3')
+  #mixer.music.load('assets\sounds\music\bgMusic.mp3')
   mixer.music.set_volume(11)
 
   WINDOW_WIDTH = 700
@@ -16,9 +16,9 @@ def scene0():
   clock = pygame.time.Clock()
   pygame.init()
   screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-  dialogBox = pygame.image.load("dialogueBox.png").convert()
-  mansionImage = pygame.image.load("mansionImage.jpg").convert()
-  userBox = pygame.image.load("dialogBox.png").convert()
+  dialogBox = pygame.image.load("finalGame\dialogueBox.png").convert()
+  mansionImage = pygame.image.load("finalGame\mansionImage.jpg").convert()
+  userBox = pygame.image.load("finalGame\dialogBox.png").convert()
 
   WHITE = (255, 255, 255)
   BLACK = (0, 0, 0)
@@ -40,7 +40,7 @@ def scene0():
           text_rect.center = (x, y)
           screen.blit(text_surface, text_rect)
           pygame.display.update()
-          pygame.time.wait(1)
+          pygame.time.wait(50)
 
   largeSans = pygame.font.Font("OpenSans-Regular.ttf", 40)
     
@@ -72,7 +72,7 @@ def scene0():
       pygame.display.update()
     
   cutScene = True
-  mixer.music.play(1)
+  #mixer.music.play(1)
   display_text_animation('It all started long ago...',320,315)
   pygame.time.wait(1000)
   display_text_animation("with a rich mansion owner...",320,315)
@@ -150,7 +150,7 @@ def scene0():
   cutScene = False
   run = True
   userText = ''
-  font = pygame.font.Font('OpenSans-Regular.ttf', 32)
+  font = pygame.font.Font("OpenSans-Regular.ttf", 32)
   clickedBox = False
   textBox = pygame.Rect(30, 155, 630, 135)
   userNameEntered = False
@@ -186,6 +186,9 @@ def scene0():
             if len(userText) >= 15:
               print("Username is too long, please enter something shorter")
               userNameEntered = False
+            elif len(userText) <= 3:
+              userNameEntered = False
+              print("Username is too short")
             elif userText == "":
               print("Enter a username")
               userNameEntered = False
