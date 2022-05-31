@@ -25,30 +25,33 @@ backButton = pygame.image.load("chromaticron-experiments/assets/buttons/all-scre
 leftArrow = pygame.image.load("chromaticron-experiments/assets/buttons/all-screens/leftArrow.jpg").convert()
 rightArrow = pygame.image.load("chromaticron-experiments/assets/buttons/all-screens/rightArrow.jpg").convert()
 nightStandZoomIn = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/zoomIns/nightstandZoomIn.png').convert()
+lockUnlocked = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/items/lockUnlocked.png').convert()
+openNightstand = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/zoomIns/openNightstand.png').convert()
 floorZoomIn= pygame.image.load('chromaticron-experiments/assets/images/Bedroom/zoomIns/floorboardZoomIn.png').convert()
 floorboardRemovedZoomIn = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/zoomIns/floorboardRemovedZoomIn.png').convert() 
 recordPlayerZoom = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/zoomIns/RecordplyrNoRecordZoomIn.png').convert()
 recordPlayerWithRecordZoom = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/zoomIns/RecordplyrZoomIn.png').convert()
 bedroomZoomBed = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/zoomIns/bedzoomin.png')
 painting = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/zoomIns/paintingZoomIn.png').convert()
-lockZoom = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/zoomIns/lockZoom.png")
+dancingManPainting = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/zoomIns/dancingManPainting.png').convert()
+lockZoom = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/zoomIns/lockZoom.png").convert()
 
-record = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/record.png")
-hammer = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/hammer.png")
-diary = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/poemDiary.png")
+record = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/record.png").convert()
+hammer = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/hammer.png").convert()
+diary = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/poemDiary.png").convert()
 
-lockOne = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockOne.png")
-lockTwo = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockTwo.png")
-lockThree = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockThree.png")
-lockFour = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockFour.png")
-lockFive = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockFive.png")
-lockSix = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockSix.png")
-lockSeven = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockSeven.png")
-lockEight = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockEight.png")
-lockNine = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockNine.png")
-lockTen = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockTen.png")
-lockEleven = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockEleven.png")
-lockTwelve = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockTwelve.png")
+lockOne = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockOne.png").convert()
+lockTwo = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockTwo.png").convert()
+lockThree = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockThree.png").convert()
+lockFour = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockFour.png").convert()
+lockFive = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockFive.png").convert()
+lockSix = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockSix.png").convert()
+lockSeven = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockSeven.png").convert()
+lockEight = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockEight.png").convert()
+lockNine = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockNine.png").convert()
+lockTen = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockTen.png").convert()
+lockEleven = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockEleven.png").convert()
+lockTwelve = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockTwelve.png").convert()
 
 dialogBox = pygame.image.load("chromaticron-experiments/experimental/dialogueBox.png").convert()
 
@@ -134,12 +137,14 @@ inventoryHotbar = imageScaling(200, 300, inventoryHotbar, 0.5)
 inventoryTextThing = imageScaling(180, 40, inventoryTextThing, 0.5)
 inventoryBackground = imageScaling(0, 0, inventoryBackground, 3)
 bedroomZoomNightstand = imageScaling(0, 0, nightStandZoomIn, 1)
+openNightstand = imageScaling(0, 0, openNightstand, 1)
 bedroomZoomFloorboard = imageScaling(0, 0, floorZoomIn, 1)
 bedroomZoomBed = imageScaling(0,0,bedroomZoomBed,1)
 recordPlayerZoomWithoutRecord = imageScaling(0, 0, recordPlayerZoom, 1)
 bedroomZoomFloorboardRemoved = imageScaling(0, 0, floorboardRemovedZoomIn, 1)
 recordPlayerZoom = imageScaling(0, 0, recordPlayerWithRecordZoom, 1)
 bedroomZoomPainting = imageScaling(0, 0, painting, 1)
+dancingManPainting = imageScaling(0,0,dancingManPainting,0.1)
 lockZoom = imageScaling(150,0,lockZoom,0.8)
 
 lockOne = imageScaling(150,0,lockOne,0.8)
@@ -154,15 +159,15 @@ lockNine = imageScaling(150,0,lockNine,0.8)
 lockTen = imageScaling(150,0,lockTen,0.8)
 lockEleven = imageScaling(150,0,lockEleven,0.8)
 lockTwelve = imageScaling(150,0,lockTwelve,0.8)
-
+lockUnlocked = imageScaling(150, 0, lockUnlocked, 0.8)
 
 diary = imageScaling(0,0,diary,0.29) 
 #cutscene
  
 #lists
-lockList = [lockOne, lockTwo, lockThree, lockFour, lockFive, lockSix, lockSeven, lockEight, lockNine, lockTen, lockEleven, lockTwelve]
+lockList = [lockOne, lockTwo, lockThree, lockFour, lockFive, lockSix, lockSeven, lockEight, lockNine, lockTen, lockEleven, lockTwelve, lockUnlocked]
 lockIndex = 0
-imageList = [bedroomScreen,bedroomZoomBed, diary, bedroomZoomNightstand, lockList[lockIndex], recordPlayerZoomWithoutRecord, bedroomZoomPainting, bedroomZoomFloorboard]
+imageList = [bedroomScreen,bedroomZoomBed, diary, bedroomZoomNightstand, lockList[lockIndex], recordPlayerZoomWithoutRecord, bedroomZoomPainting, dancingManPainting, bedroomZoomFloorboard]
 imageIndex = 0
 bedroomZooms = [bedroomZoomNightstand, bedroomZoomBed, recordPlayerZoom, bedroomZoomPainting, bedroomZoomFloorboard, bedroomZoomFloorboardRemoved, recordPlayerWithRecordZoom]
 
@@ -189,6 +194,10 @@ firstOpen = True #if user clicks bookshelf for first time, game bugs out (this i
  
 
 userCode = ''
+dancingManCodeShown = False
+recordPlayed = False
+lockOpen = False
+poemRead = False
 
  
 largeSans = pygame.font.Font("chromaticron-experiments/fonts/OpenSans-Regular.ttf", 28)
@@ -234,7 +243,7 @@ while run:
   lockRect = pygame.Rect(440,370,20,25)
   comboLockRect = pygame.Rect(230,170,240,205)
   confirmRect = pygame.Rect(540,120,105,30)
-
+  paintingZoomRect = pygame.Rect(200, 0, 325, 400)
 
 
   #pygame.draw.rect(surface,BLACK,bedroomBed,0)
@@ -261,7 +270,7 @@ while run:
     elif lockIndex == 1:
       lockTwo.draw()
     elif lockIndex == 2:
-      lockThree.draw
+      lockThree.draw()
     elif lockIndex == 3:
       lockFour.draw()
     elif lockIndex == 4:
@@ -280,9 +289,12 @@ while run:
       lockEleven.draw()
     elif lockIndex == 11:
       lockTwelve.draw()
-    elif userCode == '31617':
+    elif lockIndex == 12:
+      lockUnlocked.draw()
+   # elif userCode == '31617':
       #lockUnlocked.draw()
-      print('lock unlocked')
+      #print('lock unlocked')
+      #pygame.display.update()
   
   for event in pygame.event.get():
       #pygame.quit() will run and close window
@@ -408,6 +420,10 @@ while run:
       if confirmRect.collidepoint(x,y):
         userCode = userCode + str(lockIndex + 1)
         print(userCode)
+        if userCode =='31617':
+          print('lock unlocked')
+          lockIndex = 12
+          pygame.display.update()
         '''
         firstNumber = pygame.Rect(0, 0, screenWidth, screenHeight)
         SecondNumber = pygame.Rect(0, 0, screenWidth, screenHeight)
@@ -454,7 +470,7 @@ while run:
 
       if bedroomRecordplyr.collidepoint(x,y) and inventoryOpen == False and imageIndex == 0 and menuOpen == False:
         print("Record Player interacted")
-        imageIndex = 3
+        imageIndex = 5
         backButton.draw()
         pygame.display.update()
         zoomIn = True
@@ -467,6 +483,18 @@ while run:
           if recordOnPlyrRect.collidepoint(x,y) and inventoryOpen == False and zoomIn == True:
             print('playing record')
             mixer.Sound.play('record.wav')
+            recordPlayed = True
+
+      if bedroomPainting.collidepoint(x,y) and inventoryOpen == False and imageIndex == 0 and menuOpen == False:
+        print('PAINTING TIME!')
+        imageIndex = 6
+        pygame.display.update()
+        bedroomFrame = pygame.Rect(191, 1, 314, 399)
+        if bedroomFrame.collidepoint(x, y) and recordPlayed == True:
+          print('Flip the Mona Lisa')
+          imageIndex = 7
+          dancingManCodeShown = True
+
       if bedroomFloorboard.collidepoint(x,y) and inventoryOpen == False and imageIndex == 0 and dancingManCodeShown == True:
         print("f l o o r")
         imageIndex = 4
@@ -479,16 +507,14 @@ while run:
 
         #if DancingMenRect.collidepoint(x, y) and inventoryOpen == False and zoomIn == True and menuOpen == False
     
-      if bedroomPainting.collidepoint(x,y) and inventoryOpen == False and imageIndex == 0 and menuOpen == False:
-        print('PAINTING TIME!')
-        imageIndex = 4
-        paintingZoomRect = pygame.Rect(0, 0, screenWidth, screenHeight)
-        if paintingZoomRect.collidepoint(x,y) and 'recordPlayed' == True:
-            'paintingFlipped'.draw()
-            dancingManCodeShown = True
+      
 
       if backButtonRect.collidepoint(x,y):
         imageIndex = 0
+        if lockOpen == True:
+          userCode = '31617'
+        else:
+          userCode = ''
  
       #clocks
       
