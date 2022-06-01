@@ -18,9 +18,9 @@ pygame.display.set_caption("Menu")
 
 menuScreen = pygame.image.load("chromaticron-experiments/title/menuFullScreen.png").convert()
  
-
+#################################
 bedroom = pygame.image.load('chromaticron-experiments/assets/images/Bedroom/background/bedroom.png').convert()
-#DeskFile = pygame.image.load("assets/images/Library/backgrounds/file_inside_of_desk.png")
+
 backButton = pygame.image.load("chromaticron-experiments/assets/buttons/all-screens/backButton.jpg").convert()
 leftArrow = pygame.image.load("chromaticron-experiments/assets/buttons/all-screens/leftArrow.jpg").convert()
 rightArrow = pygame.image.load("chromaticron-experiments/assets/buttons/all-screens/rightArrow.jpg").convert()
@@ -52,6 +52,7 @@ lockNine = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/ite
 lockTen = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockTen.png").convert()
 lockEleven = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockEleven.png").convert()
 lockTwelve = pygame.image.load("chromaticron-experiments/assets/images/Bedroom/items/lockTwelve.png").convert()
+#################################
 
 dialogBox = pygame.image.load("chromaticron-experiments/experimental/dialogueBox.png").convert()
 
@@ -63,18 +64,7 @@ Transparent = (0, 0, 0, 0)
 color_inactive = pygame.Color('lightskyblue3')
 color_active = pygame.Color('red1')
 active = False
- 
-#inventoryBible = pygame.image.load(" .................. ") #inventory image
-#inventoryDancingMen = pygame.image.load(" ................ ") #inventory image
-#inventoryBlankBook = pygame.image.load(" ................ ") #inventory image
-#Bible = pygame.image.load(" .............. ") #should be the vesion where we see the verses
-#DancingMen = pygame.image.load(" .............. ") #version where we see the explanation to the dancing men cipher
-#BlankBook = pygame.image.load(" .............. ") #nothing inside until ran under water
- 
-#i dont have any idea where the images for these are... if yo could please find them id be most gracious
- 
- 
-#work-in-progress
+
  
 
 timerBg = pygame.image.load("chromaticron-experiments/title/timerBg.jpg").convert()
@@ -131,6 +121,7 @@ bibleInvItem = imageScaling(237, 297, bibleInv, 0.15)
 #inventoryBlankBook = imageScaling(w, x, inventoryBlankBook, 0.1)
 #inventoryDancingMen = imageScaling(w, x, inventoryDancingMen, 0.1)
  
+#################################
 inventoryIcon = imageScaling(600, 10, inventoryImage, 0.3)
 inventoryIcon2 = imageScaling(100, 300, inventoryImage, 0.4)
 inventoryHotbar = imageScaling(200, 300, inventoryHotbar, 0.5)
@@ -162,14 +153,18 @@ lockTwelve = imageScaling(150,0,lockTwelve,0.8)
 lockUnlocked = imageScaling(150, 0, lockUnlocked, 0.8)
 
 diary = imageScaling(0,0,diary,0.29) 
+#################################
+
 #cutscene
  
+ #################################
 #lists
 lockList = [lockOne, lockTwo, lockThree, lockFour, lockFive, lockSix, lockSeven, lockEight, lockNine, lockTen, lockEleven, lockTwelve, lockUnlocked]
 lockIndex = 0
 imageList = [bedroomScreen,bedroomZoomBed, diary, bedroomZoomNightstand, lockList[lockIndex], recordPlayerZoomWithoutRecord, bedroomZoomPainting, dancingManPainting, bedroomZoomFloorboard, openNightstand]
 imageIndex = 0
 bedroomZooms = [bedroomZoomNightstand, bedroomZoomBed, recordPlayerZoom, bedroomZoomPainting, bedroomZoomFloorboard, bedroomZoomFloorboardRemoved, recordPlayerWithRecordZoom]
+#################################
 
 inventory = [inventoryKey, bibleInvItem]# inventoryBlankBook, inventoryDancingMen
 booksList = []
@@ -192,14 +187,14 @@ menuOpen = False #will say menu is open until startButton clicked
 zoomIn = False #checks if user zoomed into certain shelves
 firstOpen = True #if user clicks bookshelf for first time, game bugs out (this is a temporary solution)
  
-
+#################################
 userCode = ''
 dancingManCodeShown = False
 recordPlayed = False
 lockOpen = False
 poemRead = False
 nightstandOpen = False
-
+#################################
  
 largeSans = pygame.font.Font("chromaticron-experiments/fonts/OpenSans-Regular.ttf", 28)
  
@@ -232,7 +227,7 @@ while run:
     t -= 1'''
  
 
- 
+################################# 
   bedroomBed = pygame.Rect(220, 230, 250, 110)
   bedroomNightstand = pygame.Rect(431, 170, 75, 80)
   bedroomRecordplyr = pygame.Rect(201, 157, 75, 70)
@@ -293,10 +288,7 @@ while run:
       lockTwelve.draw()
     elif lockIndex == 12:
       lockUnlocked.draw()
-   # elif userCode == '31617':
-      #lockUnlocked.draw()
-      #print('lock unlocked')
-      #pygame.display.update()
+#################################
   
   for event in pygame.event.get():
       #pygame.quit() will run and close window
@@ -359,16 +351,13 @@ while run:
       #if leftArrowRect.collidepoint(x,y) or rightArrowRect.collidepoint(x,y):
       #  inventoryOpen = False
  
-
+      #################################
       if bedroomBed.collidepoint(x,y) and imageIndex == 0 and menuOpen == False and inventoryOpen == False:
         print("b e d")
         imageIndex = 1
         backButton.draw()
-        #pygame.draw.rect(screen, (255,255,255), backButtonRect)
-        #pygame.display.update()
         print("bed drawn")
 
-        #if imageIndex == 1:
       if diaryRect.collidepoint(x,y) and imageIndex == 1 and menuOpen == False and inventoryOpen == False:
         print("diary drawn")
         screen.fill((0,0,0,0))
@@ -398,10 +387,8 @@ while run:
         backButton.draw()
         pygame.display.update()
         zoomIn = True
-        #lockCode = pygame.Rect(0, 0, screenWidth, screenHeight)
-        
-        
         lock = pygame.Rect(0, 0, screenWidth, screenHeight)
+
       elif bedroomNightstand.collidepoint(x, y) and imageIndex == 0 and inventoryOpen == False and menuOpen == False and lockOpen == True:
         print('open nightstand')
         imageIndex = 9
@@ -435,7 +422,7 @@ while run:
           pygame.display.update()
           imageIndex = 9
           pygame.display.update()
-
+        #################################
           '''
             if recordCollect.collidepoint(x,y):
                 print('Record has been touched')
@@ -464,6 +451,7 @@ while run:
             mixer.Sound.play('record.wav')
             recordPlayed = True
 
+      #############################
       if bedroomPainting.collidepoint(x,y) and inventoryOpen == False and imageIndex == 0 and menuOpen == False and dancingManCodeShown == False:
         print('PAINTING TIME!')
         imageIndex = 6
@@ -477,10 +465,11 @@ while run:
           print('Flip the Mona Lisa')
           imageIndex = 7
           dancingManCodeShown = True
+      ################################
 
       if bedroomFloorboard.collidepoint(x,y) and inventoryOpen == False and imageIndex == 0 and dancingManCodeShown == True:
         print("f l o o r")
-        imageIndex = 4
+        imageIndex = 8
         backButton.draw()
         zoomIn = True
         removableFloorboard = pygame.Rect(0 , 0, screenWidth, screenHeight)
