@@ -137,14 +137,14 @@ inventoryHotbar = imageScaling(200, 300, inventoryHotbar, 0.5)
 inventoryTextThing = imageScaling(180, 40, inventoryTextThing, 0.5)
 inventoryBackground = imageScaling(0, 0, inventoryBackground, 3)
 bedroomZoomNightstand = imageScaling(0, 0, nightStandZoomIn, 1)
-openNightstand = imageScaling(0, 0, openNightstand, 1)
+openNightstand = imageScaling(0, 0, openNightstand, 0.28)
 bedroomZoomFloorboard = imageScaling(0, 0, floorZoomIn, 1)
 bedroomZoomBed = imageScaling(0,0,bedroomZoomBed,1)
 recordPlayerZoomWithoutRecord = imageScaling(0, 0, recordPlayerZoom, 1)
 bedroomZoomFloorboardRemoved = imageScaling(0, 0, floorboardRemovedZoomIn, 1)
 recordPlayerZoom = imageScaling(0, 0, recordPlayerWithRecordZoom, 1)
 bedroomZoomPainting = imageScaling(0, 0, painting, 1)
-dancingManPainting = imageScaling(0,0,dancingManPainting,0.1)
+dancingManPainting = imageScaling(0,0,dancingManPainting,0.28)
 lockZoom = imageScaling(150,0,lockZoom,0.8)
 
 lockOne = imageScaling(150,0,lockOne,0.8)
@@ -167,7 +167,7 @@ diary = imageScaling(0,0,diary,0.29)
 #lists
 lockList = [lockOne, lockTwo, lockThree, lockFour, lockFive, lockSix, lockSeven, lockEight, lockNine, lockTen, lockEleven, lockTwelve, lockUnlocked]
 lockIndex = 0
-imageList = [bedroomScreen,bedroomZoomBed, diary, bedroomZoomNightstand, lockList[lockIndex], recordPlayerZoomWithoutRecord, bedroomZoomPainting, dancingManPainting, bedroomZoomFloorboard]
+imageList = [bedroomScreen,bedroomZoomBed, diary, bedroomZoomNightstand, lockList[lockIndex], recordPlayerZoomWithoutRecord, bedroomZoomPainting, dancingManPainting, bedroomZoomFloorboard, openNightstand]
 imageIndex = 0
 bedroomZooms = [bedroomZoomNightstand, bedroomZoomBed, recordPlayerZoom, bedroomZoomPainting, bedroomZoomFloorboard, bedroomZoomFloorboardRemoved, recordPlayerWithRecordZoom]
 
@@ -198,6 +198,7 @@ dancingManCodeShown = False
 recordPlayed = False
 lockOpen = False
 poemRead = False
+nightstandOpen = False
 
  
 largeSans = pygame.font.Font("chromaticron-experiments/fonts/OpenSans-Regular.ttf", 28)
@@ -238,6 +239,7 @@ while run:
   bedroomPainting = pygame.Rect(496, 75, 40, 125)
   bedroomFloorboard = pygame.Rect(35, 340, 640, 60)
   backButtonRect = pygame.Rect(10, 10, 30, 30)
+  bedroomFrame = pygame.Rect(191, 1, 314, 399)
 
   diaryRect = pygame.Rect(263,244,117,61)
   lockRect = pygame.Rect(440,370,20,25)
@@ -389,18 +391,23 @@ while run:
         inventory = list(set(inventory))
         print(inventory)"""
       
-      if bedroomNightstand.collidepoint(x,y) and imageIndex == 0 and inventoryOpen == False and menuOpen == False:
+      if bedroomNightstand.collidepoint(x,y) and imageIndex == 0 and inventoryOpen == False and menuOpen == False and lockOpen == False:
         print("nightstand")
         imageIndex = 3
         
         backButton.draw()
-        
         pygame.display.update()
         zoomIn = True
         #lockCode = pygame.Rect(0, 0, screenWidth, screenHeight)
         
         
         lock = pygame.Rect(0, 0, screenWidth, screenHeight)
+      elif bedroomNightstand.collidepoint(x, y) and imageIndex == 0 and inventoryOpen == False and menuOpen == False and lockOpen == True:
+        print('open nightstand')
+        imageIndex = 9
+        backButton.draw()
+        zoomIn = True
+        pygame.display.update()
 
       if lockRect.collidepoint(x,y) and poemRead == True and imageIndex == 3:
         print('lock time')
@@ -423,41 +430,13 @@ while run:
         if userCode =='31617':
           print('lock unlocked')
           lockIndex = 12
+          lockOpen = True
+          nightstandOpen = True
           pygame.display.update()
-        '''
-        firstNumber = pygame.Rect(0, 0, screenWidth, screenHeight)
-        SecondNumber = pygame.Rect(0, 0, screenWidth, screenHeight)
-        ThirdNumber = pygame.Rect(0, 0, screenWidth, screenHeight)
-        FourthNumber = pygame.Rect(0, 0, screenWidth, screenHeight)
-        if firstNumber.collidepoint(x,y):
-            print('changing first digit')
-            firstDigitIndex += 1
-            if firstDigitIndex == 9:
-                firstDigitIndex = 0
-            firstDigitIndex.draw()
-        if SecondNumber.collidepoint(x,y):
-            print('changing 2nd digit')
-            secondDigitIndex += 1
-            if secondDigitIndex == 9:
-                secondDigitIndex = 0
-            secondDigitIndex.draw()
-        if ThirdNumber.collidepoint(x,y):
-            print('changing 3rd digit')
-            thirdDigitIndex += 1
-            if thirdDigitIndex == 9:
-                thirdDigitIndex = 0
-            thirdDigitIndex.draw()
-        if FourthNumber.collidepoint(x,y):
-            print('changing 4th digit')
-            fourthDigitIndex += 1
-            if fourthDigitIndex == 9:
-                fourthDigitIndex = 0
-                fourthDigitIndex.draw()
-        if firstDigitIndex == 1 and secondDigitIndex == 6 and thirdDigitIndex == 1 and fourthDigitIndex == 7 and lock.collidepoint(x,y):
-            lockStatus = 'Open'
-            'lockOpen'.draw()
-            'record'.draw()
-            recordCollect = pygame.Rect(0, 0, screenWidth, screenHeight)
+          imageIndex = 9
+          pygame.display.update()
+
+          '''
             if recordCollect.collidepoint(x,y):
                 print('Record has been touched')
                 inventory[2] = 'Record'
@@ -485,12 +464,16 @@ while run:
             mixer.Sound.play('record.wav')
             recordPlayed = True
 
-      if bedroomPainting.collidepoint(x,y) and inventoryOpen == False and imageIndex == 0 and menuOpen == False:
+      if bedroomPainting.collidepoint(x,y) and inventoryOpen == False and imageIndex == 0 and menuOpen == False and dancingManCodeShown == False:
         print('PAINTING TIME!')
         imageIndex = 6
         pygame.display.update()
-        bedroomFrame = pygame.Rect(191, 1, 314, 399)
-        if bedroomFrame.collidepoint(x, y) and recordPlayed == True:
+      
+      elif bedroomPainting.collidepoint(x,y) and inventoryOpen == False and imageIndex == 0 and menuOpen == False and dancingManCodeShown == True:
+        imageIndex = 7
+        pygame.display.update()
+
+      if bedroomFrame.collidepoint(x, y) and imageIndex == 6:# and recordPlayed == True:
           print('Flip the Mona Lisa')
           imageIndex = 7
           dancingManCodeShown = True
